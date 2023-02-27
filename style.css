@@ -1,0 +1,80 @@
+html {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    display:flex;
+    background-color: rgb(38, 35, 34);
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    background-color: rgb(38, 35, 34);
+    color: rgb(249, 194, 46);
+    font-size: 20px;
+  }
+  
+h2 {
+    color: rgb(5, 14, 46);
+    font-size: 15px;
+  }
+
+.first_row {
+    width:auto;
+    height:auto;
+    justify-content: center;
+    background-color: rgb(127, 123, 130);
+    text-align: center;
+    
+}
+
+button {
+    cursor: grab;
+}
+
+.second_row {
+    width:auto;
+    height:auto;
+    background-color: rgb(127, 123, 130);
+    justify-content: center;
+    display:flex;  
+    padding: 5px; 
+}
+
+.balances {
+    display:inline-table;
+    padding-left: 1.5px;
+    padding-right: 1.5px;
+    padding-top: 75px;
+}
+
+.coinAsset {   
+    display:inline-table;
+    padding-left: 1.5px;
+    padding-right: 1.5px;
+    padding: 5px; 
+}
+
+.USDAsset {
+    display:inline-table;
+    padding-left: 1.5px;
+    padding-right: 1.5px;
+    padding-top: 50px;
+}
+
+.third_row {
+    width:auto;
+    height:auto;
+    background-color: rgb(127, 123, 130);
+    justify-content: center;
+    display:flex;
+    padding: 5px; 
+}
+
+.fourth_row {
+    width:auto;
+    height:auto;
+    background-color: rgb(127, 123, 130);
+    justify-content: center;
+    display:flex;
+    padding: 5px; 
+}

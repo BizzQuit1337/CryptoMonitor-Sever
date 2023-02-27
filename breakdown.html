@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script src="brython.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="brython()">
+        <div class="first_row">
+            <div class="navigation">
+                <a href="index.html"><button>Overview</button></a>
+                <a href="assets.html"><button>Assets</button></a>
+                <a href="positions.html"><button>Positions</button></a>
+                <a href="breakdown.html"><button>Breakdown</button></a>
+            </div>
+        </div>
+    <div id="one" class="second_row"><h2>Breakdown</h2></div>
+    <script type="text/python">
+    from browser import document, html
+    from browser.html import TABLE, TR, TH, TD
+    import tmp
+
+    def getHeaders(dic):
+            headers = []
+            for i in dic[0]:
+                    headers.append(i)
+            return headers
+
+    def getValues(dic):
+            all_values = []
+            for i in dic:
+                values = []
+                for j in i:
+                    values.append(i[j])
+                all_values.append(values)
+            return all_values
+
+    tot_headers = getHeaders(tmp.breakD)
+    tot_values = getValues(tmp.breakD)
+
+    tot_table = TABLE()
+    row = TR()
+    for line in tot_headers:
+        row <= TH(line)
+        tot_table <= row
+    for line in tot_values:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            tot_table <= row
+
+    document["one"]<= tot_table
+
+    </script>
+    </body>
+</html>
+

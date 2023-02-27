@@ -1,0 +1,120 @@
+#<html>
+    <head>
+        <script src="brython.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="brython()">
+        <div class="first_row">
+            <div class="navigation">
+                <a href="index.html"><button>Overview</button></a>
+                <a href="assets.html"><button>Assets</button></a>
+                <a href="positions.html"><button>Positions</button></a>
+		<a href="breakdown.html"><button>Breakdown</button></a>
+            </div>
+        </div>
+    <div class="second_row">
+    <div id="one" class="balances"><h2>Total Balance</h2></div>
+    <div id="one-two" class="USDAsset"><h2>USD Asset</h2></div>
+    <div id="one-three" class="CoinAsset"><h2>Coin Asset</h2></div>
+    </div>
+    <div id="two" class="third_row"><h2>Leverage</h2></div>
+    <div id="three" class="fourth_row"><h2>Risk</h2></div>
+    <script type="text/python">
+    from browser import document, html
+    from browser.html import TABLE, TR, TH, TD
+    import tmp
+
+    def getHeaders(dic):
+            headers = []
+            for i in dic[0]:
+                    headers.append(i)
+            return headers
+
+    def getValues(dic):
+            all_values = []
+            for i in dic:
+                values = []
+                for j in i:
+                    values.append(i[j])
+                all_values.append(values)
+            return all_values
+        
+    bal_headers = getHeaders(tmp.balance)
+    bal_value = getValues(tmp.balance)
+
+    lev_headers = getHeaders(tmp.leverage)
+    lev_values = getValues(tmp.leverage)
+
+    risk_headers = getHeaders(tmp.risk)
+    risk_values = getValues(tmp.risk)
+    
+    usd_headers = getHeaders(tmp.asset_usd)
+    usd_values = getValues(tmp.asset_usd)
+
+    asset_headers = getHeaders(tmp.asset)
+    asset_values = getValues(tmp.asset)
+
+    bal_table = TABLE()
+    row = TR()
+    for line in bal_headers:
+        row <= TH(line)
+        bal_table <= row
+    for line in bal_value:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            bal_table <= row
+
+    lev_table = TABLE()
+    row = TR()
+    for line in lev_headers:
+        row <= TH(line)
+        lev_table <= row
+    for line in lev_values:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            lev_table <= row
+
+    risk_table = TABLE()
+    row = TR()
+    for line in risk_headers:
+        row <= TH(line)
+        risk_table <= row
+    for line in risk_values:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            risk_table <= row
+
+    usd_table = TABLE()
+    row = TR()
+    for line in usd_headers:
+        row <= TH(line)
+        usd_table <= row
+    for line in usd_values:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            usd_table <= row
+
+    asset_table = TABLE()
+    row = TR()
+    for line in asset_headers:
+        row <= TH(line)
+        asset_table <= row
+    for line in asset_values:
+        row = TR()
+        for value in line:
+            row <= TD(value)
+            asset_table <= row
+        
+    document["one"]<= bal_table
+    document["two"]<= lev_table
+    document["three"]<= risk_table
+    document["one-two"]<= usd_table
+    document["one-three"]<= asset_table
+
+    </script>
+    </body>
+</html>
